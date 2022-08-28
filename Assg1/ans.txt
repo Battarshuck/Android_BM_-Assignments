@@ -1,0 +1,108 @@
+/**
+ * You can edit, run, and share this code.
+ * play.kotlinlang.org
+ */
+
+ fun main(args: Array<String>) {
+    
+    println(args.contentToString())
+    var myArray = arrayOf<String>()
+    
+    var i = 0
+    while(i < args.size)
+     {
+         	
+         if(i == args.size-1)
+         {  
+             myArray += args[i]
+             break;
+         }
+         
+         if(args[i+1] == "+" || args[i+1] == "-" || args[i+1] == "/")
+         {
+             myArray += args[i]
+             myArray += args[i+1]
+             i += 2
+         }
+         else if(args[i+1] == "*")
+         {
+             var myMull:Double = 1.0
+             
+             do
+             {
+                 myMull *= args[i].toDouble()
+                 i += 2
+       
+             }while(i < args.size && args[i-1] == "*")
+             
+             myArray += myMull.toString()
+             
+             if(i < args.size)
+             {
+                 myArray += args[i-1]
+             }
+             
+         }      
+     }
+     
+     println(myArray.contentToString())
+     
+     var myArray2 = arrayOf<String>()
+    
+    i = 0
+    while(i < myArray.size)
+     {
+         	
+         if(i == myArray.size-1)
+         {  
+             myArray += myArray[i]
+             break;
+         }
+         
+         if(myArray[i+1] == "+" || myArray[i+1] == "-")
+         {
+             myArray2 += myArray[i]
+             myArray2 += myArray[i+1]
+             i += 2
+         }
+         else if(myArray[i+1] == "/")
+         {
+             var myDiv:Double = myArray[i].toDouble()*myArray[i].toDouble()
+             
+             do
+             {
+               
+                 myDiv /= myArray[i].toDouble()
+                 i += 2
+       
+             }while(i < myArray.size && myArray[i-1] == "/")
+             
+             myArray2 += myDiv.toString()
+             
+             if(i < myArray.size)
+             {
+                 
+                 myArray2 += myArray[i-1]  
+             }
+             
+         }
+     }
+     
+     println(myArray2.contentToString())
+     
+    var ans = myArray2[0].toDouble()
+    for(i in 1..myArray2.size-1)
+     {
+         if(myArray2[i] == "+")
+         {            
+             ans += myArray2[i+1].toDouble()
+         }
+         else if(myArray2[i] == "-")
+         {     
+             ans -= myArray2[i+1].toDouble()
+         }
+         
+     }
+		println("$ans")
+}
+//

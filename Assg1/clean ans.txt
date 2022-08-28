@@ -1,0 +1,100 @@
+/**
+ * You can edit, run, and share this code.
+ * play.kotlinlang.org
+ */
+fun computeExpression(arr: Array<String>)
+{
+    var ans = arr[0].toDouble()
+    for(i in 1..arr.size-1)
+     {
+         if(arr[i] == "+")
+         {            
+             ans += arr[i+1].toDouble()
+         }
+         else if(arr[i] == "-")
+         {     
+             ans -= arr[i+1].toDouble()
+         }
+         
+     }
+		println("$ans")
+}
+
+fun computeMullOrDiv(arr: Array<String>, type: String): Array<String>{
+    var myArray = arrayOf<String>()
+    
+    var i = 0
+    while(i < arr.size)
+     {
+         	
+         if(i == arr.size-1)
+         {  
+             myArray += arr[i]
+             break;
+         }
+         
+         if(arr[i+1] != type)
+         {
+             myArray += arr[i]
+             myArray += arr[i+1]
+             i += 2
+         }
+         else if(arr[i+1] == type)
+         {
+             var myOp:Double = 0.0
+             if(type == "*")
+             {
+                  myOp = 1.0
+             }
+             else
+             {
+                  myOp = arr[i].toDouble()*arr[i].toDouble()
+             }
+             
+             do
+             {
+                 if(type == "*")
+                 {
+                     myOp *= arr[i].toDouble()
+                 }
+                 else
+                 {
+                     myOp /= arr[i].toDouble()
+                 }
+                 i += 2
+       
+             }while(i < arr.size && arr[i-1] == type)
+             
+             myArray += myOp.toString()
+             
+             if(i < arr.size)
+             {
+                 myArray += arr[i-1]
+             }
+             
+         }      
+     }
+     
+     return myArray
+}
+
+
+
+ fun main(args: Array<String>) {
+    
+    println(args.contentToString())
+    var myArray = arrayOf<String>()
+    
+    myArray = computeMullOrDiv(args, "*")
+     
+    println(myArray.contentToString())
+    
+     var myArray2 = arrayOf<String>()
+     
+     myArray2 = computeMullOrDiv(myArray, "/")
+     
+     println(myArray2.contentToString())
+     computeExpression(myArray2)
+   
+}
+//
