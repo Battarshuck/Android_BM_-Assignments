@@ -1,0 +1,163 @@
+fun function1(start:Char, contain:Char, arr: Array<String>):Array<String>
+{
+    
+    var ans = arrayOf<String>()
+     
+     for(i in 0..arr.size-1)
+     {
+         if(arr[i][0] == start)
+         {
+             for(j in 1..arr[i].length-1)
+         	{
+             	if(arr[i][j] == contain)
+                {
+                    ans+=arr[i]
+                    break
+                }
+         	}
+         }
+         
+     }
+     
+     if(ans.size == 0)
+    {
+        return arr
+    }
+    
+    return ans
+
+}
+
+//###################################
+fun function2(count: Int, arr: Array<String>) : Boolean
+{
+    
+    for(i in 0..arr.size-1)
+     {
+         if(arr[i].length >= count)
+         {
+             return true
+         }
+         
+     }
+	
+    return false
+}
+
+//###################################
+fun function3(count: Int, arr: Array<String>) : Boolean
+{
+    
+    for(i in 0..arr.size-1)
+     {
+         if(arr[i].length < count)
+         {
+             return false
+         }
+         
+     }
+	
+    return true
+}
+
+//###################################
+fun function4(start:Char, contain:Char, arr: Array<String>):Array<String>
+{
+    var ans = arrayOf<String>()
+     
+     for(i in 1..arr.size-1)
+     {
+         if(arr[i][0] == start)
+         {
+             for(j in 1..arr[i].length-1)
+         	{
+             	if(arr[i][j] == contain)
+                {
+                    ans+=arr[i-1]
+                    break
+                }
+         	}
+         }
+         
+     }
+    
+    return ans
+}
+
+//###################################
+fun function5(count: Int, arr: Array<String>):Array<String>
+{
+    var ans = arrayOf<String>()
+     for(i in 0..arr.size-1)
+     {
+         if(arr[i].length == count)
+         {
+             var j: Int = i
+             while(j < arr.size)
+             {
+                 ans += arr[j]
+                 j++
+             }
+             break
+         }
+         
+     }
+     
+     return ans
+}
+
+//###################################
+fun function6(arr: Array<String>):Array<Int>
+{
+    var ans = arrayOf<Int>()
+     for(i in 0..arr.size-1)
+     {
+         ans += arr[i].length    
+     }
+     
+     return ans
+}
+
+
+
+ fun main(args: Array<String>) {
+    
+     //Function 1 Test
+     var arr1 = arrayOf<String>("Mostafa","Mohamed","Osama")
+   	var function1Result = function1('M','a',arr1)
+   
+ 	println(function1Result.contentToString())
+    
+    
+    //Function 2 Test
+    val function2Result = function2(3, arrayOf<String>("a","abc"))
+    println("$function2Result")
+    
+    
+    //Function 3 Test
+    val function3Result = function3(3, arrayOf<String>("a","abc"))
+    println("$function3Result")
+    
+    
+    
+    //Function 4 Test
+    var arr4 = arrayOf<String>("a","Ma","M	")
+   	var function4Result = function4('M','a',arr4)
+   
+ 	println(function4Result.contentToString())
+    
+    
+    //Function 5 Test
+    var arr5 = arrayOf<String>("a","abc","ab")
+   	var function5Result = function5(3, arr5)
+   
+ 	println(function5Result.contentToString())
+    
+    
+    //Function 6 Test
+    var arr6 = arrayOf<String>("a","abc","ab")
+   	var function6Result = function6(arr6)
+   
+ 	println(function6Result.contentToString())
+}
+//
