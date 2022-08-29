@@ -1,0 +1,26 @@
+fun main(args: Array<String>) {
+    
+ 
+ 	var start:Char = 'M'
+     var contain:Char = 'd'
+     var arr = arrayOf<String>("Mostafa","Mohamed","Osama")
+     
+     for(i in 0..arr.size-1)
+     {
+         if(arr[i][0] == start)
+         {
+             for(j in 1..arr[i].length-1)
+         	{
+             	if(arr[i][j] == contain)
+                {
+                    println("${arr[i]}")
+                    return
+                }
+         	}
+         }
+         
+     }
+     
+     print("Not found")
+
+}
