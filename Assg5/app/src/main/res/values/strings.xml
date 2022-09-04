@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Task4</string>
+    <string name="title">DIGITIM</string>
+    <string name="main_email_edittext">Email</string>
+    <string name="main_password_editext">Password</string>
+    <string name="main_btn_text">Secure Login</string>
+    <string name="sign_up_now_message">Sign up Now!</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sign_in_with_social_networks">Sign in with Social Networks</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google</string>
+</resources>
