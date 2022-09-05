@@ -1,5 +1,5 @@
 package com.example.myapplication
 
 interface UserInfo {
-    fun userClick(user: User)
+    fun userClick(index: Int)
 }

@@ -18,9 +18,10 @@ class RecyclerAdapter(val userClickObject: UserInfo) :
     override fun onBindViewHolder(holder: RecyclerAdapter.UserHolder, position: Int) {
         holder.tvName.text = ListUsers.get(position).name
         holder.tvJob.text = ListUsers.get(position).job
-        holder.tvMobile = ListUsers.get(position).mobile
-        holder.tvEmail = ListUsers.get(position).email
-        holder.tvAddress  = ListUsers.get(position).address
+        holder.index = position
+
+        //NOTE: for memory efficiency you could only store the position variable
+        //and then use it to get the data from the original array
     }
 
     override fun getItemCount() = ListUsers.size
@@ -28,24 +29,14 @@ class RecyclerAdapter(val userClickObject: UserInfo) :
     inner class UserHolder(view: View) : RecyclerView.ViewHolder(view) {
         lateinit var tvName: TextView
         lateinit var tvJob: TextView
-        lateinit var tvMobile: String
-        lateinit var tvEmail: String
-        lateinit var tvAddress: String
+        var index: Int = 0
 
         init {
             tvName = view.findViewById<TextView>(R.id.tv_name)
             tvJob = view.findViewById<TextView>(R.id.tv_job)
 
             tvName.setOnClickListener {
-                userClickObject.userClick(
-                    User(
-                        tvName.text.toString(),
-                        tvJob.text.toString(),
-                        tvMobile,
-                        tvEmail,
-                        tvAddress
-                    )
-                )
+                userClickObject.userClick(index)
             }
         }
 

@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 
 
-class DetailsFragment(val user: User) : Fragment(R.layout.fragment_details) {
+class DetailsFragment(val index: Int) : Fragment(R.layout.fragment_details) {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,11 +27,11 @@ class DetailsFragment(val user: User) : Fragment(R.layout.fragment_details) {
         val email = view.findViewById<TextView>(R.id.tv_details_email)
         val address = view.findViewById<TextView>(R.id.tv_details_address)
 
-        name.text = user.name
-        job.text = user.job
-        mobile.text = user.mobile
-        email.text = user.email
-        address.text = user.address
+        name.text = ListUsers[index].name
+        job.text = ListUsers[index].job
+        mobile.text = ListUsers[index].mobile
+        email.text = ListUsers[index].email
+        address.text = ListUsers[index].address
     }
 
 }

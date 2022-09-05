@@ -14,9 +14,9 @@ class MainActivity : AppCompatActivity(), UserInfo {
             .commit()
     }
 
-    override fun userClick(user: User) {
+    override fun userClick(index: Int) {
 
-        val userDetails = DetailsFragment(user)
+        val userDetails = DetailsFragment(index)
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.fcv_myfragment, userDetails)
