@@ -11,10 +11,10 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     private val titles = arrayOf("One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight")
     private val details = arrayOf("1", "2", "3", "4", "5", "6", "7", "8")
-    private val images = arrayOf(R.drawable.ic_launcher_foreground,
-        R.drawable.ic_launcher_background, R.drawable.ic_launcher_foreground,
-            R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground, R.drawable.ic_launcher_foreground,
-            R.drawable.ic_launcher_foreground)
+    private val images = arrayOf( R.drawable.drawable_icon_thunderbolt,
+        R.drawable.drawable_icon_thunderbolt,  R.drawable.drawable_icon_thunderbolt,
+        R.drawable.drawable_icon_thunderbolt,  R.drawable.drawable_icon_thunderbolt,  R.drawable.drawable_icon_thunderbolt,  R.drawable.drawable_icon_thunderbolt,
+        R.drawable.drawable_icon_thunderbolt)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.ViewHolder {
         val inflater = LayoutInflater.from(parent.context).inflate(R.layout.card_layout, parent, false)
